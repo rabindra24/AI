@@ -5,7 +5,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 mongoose.connect(
-  "mongodb+srv://admin:Askme%4012345@cluster0.b3ub8ba.mongodb.net/?retryWrites=true&w=majority"
+  process.env.DATABASE
 );
 
 const Search = mongoose.model("search", { search: String });
@@ -21,7 +21,7 @@ const myfunction = async () => {
 myfunction();
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.API,
 });
 
 const openai = new OpenAIApi(configuration);
